@@ -28,10 +28,13 @@ APP_NAME="Gradle"
 APP_BASE_NAME=`basename "$0"`
 
 # Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
-DEFAULT_JVM_OPTS=""
+DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
 
 # Use the maximum available, or set MAX_FD != -1 to use that value.
 MAX_FD="maximum"
+
+# Classpath for Gradle Wrapper
+CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
 
 warn ( ) {
     echo "$*"
@@ -101,35 +104,11 @@ if $darwin; then
     GRADLE_OPTS="$GRADLE_OPTS \"-Xdock:name=$APP_NAME\" \"-Xdock:icon=$APP_HOME/media/gradle.icns\""
 fi
 
-# For Cygwin, switch paths to Windows format before running java
-if $cygwin ; then
+# For Cygwin or MSYS, switch paths to Windows format before running java
+if $cygwin || $msys ; then
     APP_HOME=`cygpath --path --mixed "$APP_HOME"`
     CLASSPATH=`cygpath --path --mixed "$CLASSPATH"`
     JAVACMD=`cygpath --windows "$JAVACMD"`
-    # We build the pattern for arguments to be converted via cygpath
-    ROOTDIRSRAW=`find -L / -maxdepth 3 -type d -name gradle 2>/dev/null`
-    SEP=""
-    for dir in $ROOTDIRSRAW ; do
-        ROOTDIR="$dir"
-        break
-    done
-    if [ -z "$ROOTDIR" ] ; then
-        ROOTDIR=`dirname "$PRG"`/..
-    fi
-    ROOTDIR=`cygpath --path --windows "$ROOTDIR"`
-    CLASSPATH=`cygpath --path --mixed "$CLASSPATH"`
-    JAVACMD=`cygpath --windows "$JAVACMD"`
-    # We build the pattern for arguments to be converted via cygpath
-    ROOTDIRSRAW=`find -L / -maxdepth 3 -type d -name gradle 2>/dev/null`
-    SEP=""
-    for dir in $ROOTDIRSRAW ; do
-        ROOTDIR="$dir"
-        break
-    done
-    if [ -z "$ROOTDIR" ] ; then
-        ROOTDIR=`dirname "$PRG"`/..
-    fi
-    ROOTDIR=`cygpath --path --windows "$ROOTDIR"`
 fi
 
 # Escape application args
@@ -138,10 +117,8 @@ save ( ) {
     echo " "
 }
 APP_ARGS=`save "$@"`
-# Collect all arguments for the java command, following the shell quoting and substitution rules
+
+# Collect all arguments for the java command; stacking them up
 eval set -- $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS "\"-Dorg.gradle.appname=$APP_BASE_NAME\"" -classpath "\"$CLASSPATH\"" org.gradle.wrapper.GradleWrapperMain "$APP_ARGS"
-# by default we should be in the correct project dir, but when run from Finder on Mac, the cwd is wrong
-if [ "$(uname)" = "Darwin" ] && [ "$HOME" = "$PWD" ]; then
-  cd "$(dirname "$0")"
-fi
+
 exec "$JAVACMD" "$@"
