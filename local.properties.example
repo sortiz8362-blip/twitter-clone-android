@@ -1,0 +1,13 @@
+# This file is intentionally left blank.
+# You need to set the following properties locally:
+#
+# sdk.dir=/path/to/Android/sdk
+#
+# For Windows example:
+# sdk.dir=C:\\Users\\YourUsername\\AppData\\Local\\Android\\sdk
+#
+# For macOS example:
+# sdk.dir=/Users/YourUsername/Library/Android/sdk
+#
+# For Linux example:
+# sdk.dir=/home/YourUsername/Android/sdk

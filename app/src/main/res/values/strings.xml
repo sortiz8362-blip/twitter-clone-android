@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TwitterClone</string>
+    <string name="home">Home</string>
+    <string name="explorer">Explorer</string>
+    <string name="notifications">Notifications</string>
+    <string name="messages">Messages</string>
+    <string name="profile">Profile</string>
+    <string name="tweet">Tweet</string>
+    <string name="search">Search Twitter...</string>
+    <string name="what_s_happening">What\'s happening?!</string>
+    <string name="tweet_button">Tweet</string>
+    <string name="reply">Reply</string>
+    <string name="retweet">Retweet</string>
+    <string name="like">Like</string>
+    <string name="share">Share</string>
+    <string name="favorites">Favorites</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+</resources>
